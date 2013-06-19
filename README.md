@@ -9,7 +9,7 @@ The API strictly follows that of the latest version of [Apache Lucene Core](http
   
 ## Roadmap 
 
-The project is still a work-in-progress undergoing development. If you think you can help, please drop me a notes or fork it ! 
+The project is still a work-in-progress undergoing development. If you think you can help, please drop me a note or fork it ! 
 
 ## Author
 Denny C. Dai <dennycd@me.com> or visit <http://dennycd.me>
