@@ -1,0 +1,255 @@
+var util = require('util');
+var assert = require('assert');
+var defineClass = require('library/class/defineClass.js');
+var Class = require('library/class/Class.js');
+var BulkOperation = require('./BulkOperation.js');
+var BulkOperationPacked = require('./BulkOperationPacked.js');
+/**
+ * Efficient sequential read/write of packed integers.
+ */
+var BulkOperationPacked19 = defineClass({
+	name: "BulkOperationPacked19",
+	extend: BulkOperationPacked,
+	construct: function() {
+		BulkOperationPacked.call(this, 19);
+	},
+	methods: {
+		decodeWithLongBlockIntVal: function( /* long[ ]*/ blocks, /* int */ blocksOffset, /* int[] */ values, /* int */ valuesOffset, /* int */ iterations) {
+			for (var i = 0; i < iterations; ++i) {
+				var block0 = blocks[blocksOffset++];
+				values[valuesOffset++] = (block0 >>> 45);
+				values[valuesOffset++] = ((block0 >>> 26) & 524287);
+				values[valuesOffset++] = ((block0 >>> 7) & 524287);
+				var block1 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block0 & 127) << 12) | (block1 >>> 52));
+				values[valuesOffset++] = ((block1 >>> 33) & 524287);
+				values[valuesOffset++] = ((block1 >>> 14) & 524287);
+				var block2 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block1 & 16383) << 5) | (block2 >>> 59));
+				values[valuesOffset++] = ((block2 >>> 40) & 524287);
+				values[valuesOffset++] = ((block2 >>> 21) & 524287);
+				values[valuesOffset++] = ((block2 >>> 2) & 524287);
+				var block3 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block2 & 3) << 17) | (block3 >>> 47));
+				values[valuesOffset++] = ((block3 >>> 28) & 524287);
+				values[valuesOffset++] = ((block3 >>> 9) & 524287);
+				var block4 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block3 & 511) << 10) | (block4 >>> 54));
+				values[valuesOffset++] = ((block4 >>> 35) & 524287);
+				values[valuesOffset++] = ((block4 >>> 16) & 524287);
+				var block5 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block4 & 65535) << 3) | (block5 >>> 61));
+				values[valuesOffset++] = ((block5 >>> 42) & 524287);
+				values[valuesOffset++] = ((block5 >>> 23) & 524287);
+				values[valuesOffset++] = ((block5 >>> 4) & 524287);
+				var block6 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block5 & 15) << 15) | (block6 >>> 49));
+				values[valuesOffset++] = ((block6 >>> 30) & 524287);
+				values[valuesOffset++] = ((block6 >>> 11) & 524287);
+				var block7 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block6 & 2047) << 8) | (block7 >>> 56));
+				values[valuesOffset++] = ((block7 >>> 37) & 524287);
+				values[valuesOffset++] = ((block7 >>> 18) & 524287);
+				var block8 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block7 & 262143) << 1) | (block8 >>> 63));
+				values[valuesOffset++] = ((block8 >>> 44) & 524287);
+				values[valuesOffset++] = ((block8 >>> 25) & 524287);
+				values[valuesOffset++] = ((block8 >>> 6) & 524287);
+				var block9 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block8 & 63) << 13) | (block9 >>> 51));
+				values[valuesOffset++] = ((block9 >>> 32) & 524287);
+				values[valuesOffset++] = ((block9 >>> 13) & 524287);
+				var block10 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block9 & 8191) << 6) | (block10 >>> 58));
+				values[valuesOffset++] = ((block10 >>> 39) & 524287);
+				values[valuesOffset++] = ((block10 >>> 20) & 524287);
+				values[valuesOffset++] = ((block10 >>> 1) & 524287);
+				var block11 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block10 & 1) << 18) | (block11 >>> 46));
+				values[valuesOffset++] = ((block11 >>> 27) & 524287);
+				values[valuesOffset++] = ((block11 >>> 8) & 524287);
+				var block12 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block11 & 255) << 11) | (block12 >>> 53));
+				values[valuesOffset++] = ((block12 >>> 34) & 524287);
+				values[valuesOffset++] = ((block12 >>> 15) & 524287);
+				var block13 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block12 & 32767) << 4) | (block13 >>> 60));
+				values[valuesOffset++] = ((block13 >>> 41) & 524287);
+				values[valuesOffset++] = ((block13 >>> 22) & 524287);
+				values[valuesOffset++] = ((block13 >>> 3) & 524287);
+				var block14 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block13 & 7) << 16) | (block14 >>> 48));
+				values[valuesOffset++] = ((block14 >>> 29) & 524287);
+				values[valuesOffset++] = ((block14 >>> 10) & 524287);
+				var block15 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block14 & 1023) << 9) | (block15 >>> 55));
+				values[valuesOffset++] = ((block15 >>> 36) & 524287);
+				values[valuesOffset++] = ((block15 >>> 17) & 524287);
+				var block16 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block15 & 131071) << 2) | (block16 >>> 62));
+				values[valuesOffset++] = ((block16 >>> 43) & 524287);
+				values[valuesOffset++] = ((block16 >>> 24) & 524287);
+				values[valuesOffset++] = ((block16 >>> 5) & 524287);
+				var block17 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block16 & 31) << 14) | (block17 >>> 50));
+				values[valuesOffset++] = ((block17 >>> 31) & 524287);
+				values[valuesOffset++] = ((block17 >>> 12) & 524287);
+				var block18 = blocks[blocksOffset++];
+				values[valuesOffset++] = (((block17 & 4095) << 7) | (block18 >>> 57));
+				values[valuesOffset++] = ((block18 >>> 38) & 524287);
+				values[valuesOffset++] = ((block18 >>> 19) & 524287);
+				values[valuesOffset++] = (block18 & 524287);
+			}
+		},
+		decodeWithByteBlockIntVal: function( /* byte[] */ blocks, /* int */ blocksOffset, /* int[] */ values, /* int */ valuesOffset, /* int */ iterations) {
+			for (var i = 0; i < iterations; ++i) {
+				var byte0 = blocks[blocksOffset++] & 0xFF;
+				var byte1 = blocks[blocksOffset++] & 0xFF;
+				var byte2 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = (byte0 << 11) | (byte1 << 3) | (byte2 >>> 5);
+				var byte3 = blocks[blocksOffset++] & 0xFF;
+				var byte4 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte2 & 31) << 14) | (byte3 << 6) | (byte4 >>> 2);
+				var byte5 = blocks[blocksOffset++] & 0xFF;
+				var byte6 = blocks[blocksOffset++] & 0xFF;
+				var byte7 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte4 & 3) << 17) | (byte5 << 9) | (byte6 << 1) | (byte7 >>> 7);
+				var byte8 = blocks[blocksOffset++] & 0xFF;
+				var byte9 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte7 & 127) << 12) | (byte8 << 4) | (byte9 >>> 4);
+				var byte10 = blocks[blocksOffset++] & 0xFF;
+				var byte11 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte9 & 15) << 15) | (byte10 << 7) | (byte11 >>> 1);
+				var byte12 = blocks[blocksOffset++] & 0xFF;
+				var byte13 = blocks[blocksOffset++] & 0xFF;
+				var byte14 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte11 & 1) << 18) | (byte12 << 10) | (byte13 << 2) | (byte14 >>> 6);
+				var byte15 = blocks[blocksOffset++] & 0xFF;
+				var byte16 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte14 & 63) << 13) | (byte15 << 5) | (byte16 >>> 3);
+				var byte17 = blocks[blocksOffset++] & 0xFF;
+				var byte18 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte16 & 7) << 16) | (byte17 << 8) | byte18;
+			}
+		}
+		decodeWithLongBlockLongVal: function( /* long[] */ blocks, /* int */ blocksOffset, /* long[] */ values, /* int */ valuesOffset, /* int */ iterations) {
+			for (var i = 0; i < iterations; ++i) {
+				var block0 = blocks[blocksOffset++];
+				values[valuesOffset++] = block0 >>> 45;
+				values[valuesOffset++] = (block0 >>> 26) & 524287;
+				values[valuesOffset++] = (block0 >>> 7) & 524287;
+				var block1 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block0 & 127) << 12) | (block1 >>> 52);
+				values[valuesOffset++] = (block1 >>> 33) & 524287;
+				values[valuesOffset++] = (block1 >>> 14) & 524287;
+				var block2 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block1 & 16383) << 5) | (block2 >>> 59);
+				values[valuesOffset++] = (block2 >>> 40) & 524287;
+				values[valuesOffset++] = (block2 >>> 21) & 524287;
+				values[valuesOffset++] = (block2 >>> 2) & 524287;
+				var block3 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block2 & 3) << 17) | (block3 >>> 47);
+				values[valuesOffset++] = (block3 >>> 28) & 524287;
+				values[valuesOffset++] = (block3 >>> 9) & 524287;
+				var block4 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block3 & 511) << 10) | (block4 >>> 54);
+				values[valuesOffset++] = (block4 >>> 35) & 524287;
+				values[valuesOffset++] = (block4 >>> 16) & 524287;
+				var block5 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block4 & 65535) << 3) | (block5 >>> 61);
+				values[valuesOffset++] = (block5 >>> 42) & 524287;
+				values[valuesOffset++] = (block5 >>> 23) & 524287;
+				values[valuesOffset++] = (block5 >>> 4) & 524287;
+				var block6 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block5 & 15) << 15) | (block6 >>> 49);
+				values[valuesOffset++] = (block6 >>> 30) & 524287;
+				values[valuesOffset++] = (block6 >>> 11) & 524287;
+				var block7 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block6 & 2047) << 8) | (block7 >>> 56);
+				values[valuesOffset++] = (block7 >>> 37) & 524287;
+				values[valuesOffset++] = (block7 >>> 18) & 524287;
+				var block8 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block7 & 262143) << 1) | (block8 >>> 63);
+				values[valuesOffset++] = (block8 >>> 44) & 524287;
+				values[valuesOffset++] = (block8 >>> 25) & 524287;
+				values[valuesOffset++] = (block8 >>> 6) & 524287;
+				var block9 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block8 & 63) << 13) | (block9 >>> 51);
+				values[valuesOffset++] = (block9 >>> 32) & 524287;
+				values[valuesOffset++] = (block9 >>> 13) & 524287;
+				var block10 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block9 & 8191) << 6) | (block10 >>> 58);
+				values[valuesOffset++] = (block10 >>> 39) & 524287;
+				values[valuesOffset++] = (block10 >>> 20) & 524287;
+				values[valuesOffset++] = (block10 >>> 1) & 524287;
+				var block11 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block10 & 1) << 18) | (block11 >>> 46);
+				values[valuesOffset++] = (block11 >>> 27) & 524287;
+				values[valuesOffset++] = (block11 >>> 8) & 524287;
+				var block12 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block11 & 255) << 11) | (block12 >>> 53);
+				values[valuesOffset++] = (block12 >>> 34) & 524287;
+				values[valuesOffset++] = (block12 >>> 15) & 524287;
+				var block13 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block12 & 32767) << 4) | (block13 >>> 60);
+				values[valuesOffset++] = (block13 >>> 41) & 524287;
+				values[valuesOffset++] = (block13 >>> 22) & 524287;
+				values[valuesOffset++] = (block13 >>> 3) & 524287;
+				var block14 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block13 & 7) << 16) | (block14 >>> 48);
+				values[valuesOffset++] = (block14 >>> 29) & 524287;
+				values[valuesOffset++] = (block14 >>> 10) & 524287;
+				var block15 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block14 & 1023) << 9) | (block15 >>> 55);
+				values[valuesOffset++] = (block15 >>> 36) & 524287;
+				values[valuesOffset++] = (block15 >>> 17) & 524287;
+				var block16 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block15 & 131071) << 2) | (block16 >>> 62);
+				values[valuesOffset++] = (block16 >>> 43) & 524287;
+				values[valuesOffset++] = (block16 >>> 24) & 524287;
+				values[valuesOffset++] = (block16 >>> 5) & 524287;
+				var block17 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block16 & 31) << 14) | (block17 >>> 50);
+				values[valuesOffset++] = (block17 >>> 31) & 524287;
+				values[valuesOffset++] = (block17 >>> 12) & 524287;
+				var block18 = blocks[blocksOffset++];
+				values[valuesOffset++] = ((block17 & 4095) << 7) | (block18 >>> 57);
+				values[valuesOffset++] = (block18 >>> 38) & 524287;
+				values[valuesOffset++] = (block18 >>> 19) & 524287;
+				values[valuesOffset++] = block18 & 524287;
+			}
+		},
+		decodeWithByteBlockLongVal: function( /* byte[] */ blocks, /* int */ blocksOffset, /* long[] */ values, /* int */ valuesOffset, /* int */ iterations) {
+			for (var i = 0; i < iterations; ++i) {
+				var byte0 = blocks[blocksOffset++] & 0xFF;
+				var byte1 = blocks[blocksOffset++] & 0xFF;
+				var byte2 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = (byte0 << 11) | (byte1 << 3) | (byte2 >>> 5);
+				var byte3 = blocks[blocksOffset++] & 0xFF;
+				var byte4 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte2 & 31) << 14) | (byte3 << 6) | (byte4 >>> 2);
+				var byte5 = blocks[blocksOffset++] & 0xFF;
+				var byte6 = blocks[blocksOffset++] & 0xFF;
+				var byte7 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte4 & 3) << 17) | (byte5 << 9) | (byte6 << 1) | (byte7 >>> 7);
+				var byte8 = blocks[blocksOffset++] & 0xFF;
+				var byte9 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte7 & 127) << 12) | (byte8 << 4) | (byte9 >>> 4);
+				var byte10 = blocks[blocksOffset++] & 0xFF;
+				var byte11 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte9 & 15) << 15) | (byte10 << 7) | (byte11 >>> 1);
+				var byte12 = blocks[blocksOffset++] & 0xFF;
+				var byte13 = blocks[blocksOffset++] & 0xFF;
+				var byte14 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte11 & 1) << 18) | (byte12 << 10) | (byte13 << 2) | (byte14 >>> 6);
+				var byte15 = blocks[blocksOffset++] & 0xFF;
+				var byte16 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte14 & 63) << 13) | (byte15 << 5) | (byte16 >>> 3);
+				var byte17 = blocks[blocksOffset++] & 0xFF;
+				var byte18 = blocks[blocksOffset++] & 0xFF;
+				values[valuesOffset++] = ((byte16 & 7) << 16) | (byte17 << 8) | byte18;
+			}
+		}
+	}
+});
+module.exports = exports = BulkOperationPacked19;

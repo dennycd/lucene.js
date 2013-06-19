@@ -1,7 +1,7 @@
 {
   "name": "lucene.js",
   "version": "0.0.1",
-  "description": "A javascript port of Apache Lucene core",
+  "description": "A Javascript Port of Apache Lucene Search Engine (Core)",
   "main": "index.js",
   "scripts": {
     "test": "nodeunit test"
