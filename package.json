@@ -1,0 +1,26 @@
+{
+  "name": "lucene.js",
+  "version": "0.0.1",
+  "description": "A javascript port of Apache Lucene core",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dennycd/lucene.js.git"
+  },
+  "keywords": [
+    "apache",
+    "lucene",
+    "search",
+    "engine",
+    "javascript",
+    "port"
+  ],
+  "author": "Denny C. Dai <dennycd@me.com> (http://dennycd.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dennycd/lucene.js/issues"
+  }
+}
