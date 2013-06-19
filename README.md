@@ -1,11 +1,15 @@
 ## Lucene.js 
-A Javascript Port of Apache Lucene Search Engine (Core). Lucene.js is a javascript implementation of the popular apache lucene search engine core. you can use it as 
+A Javascript Port of [Apache Lucene Core](https://lucene.apache.org/core/). Lucene.js is a javascript implementation of the popular apache lucene search engine core. you can use it as 
 
 * a server-side javascript module running on Node.js
-* a js library run directly in the browser 
+* a js library run directly in the client-side browser 
 
-The API strictly follows that of the latest version of [Apache Lucene Core](https://lucene.apache.org/core/). 
+Library features including
 
+* framework API conforming to the latest apache lucene core spec
+* pure javascript-based implementation with optional C++ node.js module addon
+* integrated networking module
+* indexing DB with efficient and scalable data structure format 
   
 ## Roadmap 
 
