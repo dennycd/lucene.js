@@ -1,6 +1,7 @@
 var util = require('util');
 var assert = require('assert');
-var defineClass = require('library/class/defineClass.js');
+var defineClass = require('simple-cls').defineClass;
+var Class = require('simple-cls').Class;
 var clc = require('cli-color');
 
 var Throwable = defineClass({

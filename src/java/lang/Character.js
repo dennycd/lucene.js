@@ -1,7 +1,7 @@
 var util = require('util');
 var assert = require('assert');
 var defineClass = require('simple-cls').defineClass;
-var Class = require('library/class/Class.js');
+var Class = require('simple-cls').Class;
 
 /**
  http://docs.oracle.com/javase/7/docs/api/java/lang/Character.html#MAX_RADIX
