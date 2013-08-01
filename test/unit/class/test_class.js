@@ -7,7 +7,8 @@ var nodeunit = require('nodeunit');
 var clc = require('cli-color');
 var logger = require('winston');
 var defineInterface = require('library/class/defineInterface.js');
-var defineClass = require('library/class/defineClass.js');
+var defineClass = require('simple-cls').defineClass;
+
 
 //should do this before handle
 module.exports = exports = {
